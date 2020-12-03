@@ -1,11 +1,13 @@
-import React, { useContext, useState} from 'react'
-// import { ethers } from 'ethers'
+import React, { useContext, useState, useEffect} from 'react'
+import { ethers } from 'ethers'
 import { Web3Context } from './hooks/useWeb3'
 import { PseudoStorageContext } from './App'
+import { PseudoStorage_address, PseudoStorage_abi } from './contracts/PseudoStorage'
 
 function Dapp() {
   const [web3State, login] = useContext(Web3Context)
   const pseudoStorage = useContext(PseudoStorageContext)
+  const [PseudoStorage, setPseudoStorage] = useState(null);
  
 
   const [getValue, setGetValue] = useState()
@@ -27,6 +29,20 @@ function Dapp() {
      
    }
 
+
+   // A voir:
+
+   useEffect(() => {
+    if (web3State.signer !== null) {
+      setPseudoStorage(
+        new ethers.Contract(
+          PseudoStorage_address,
+          PseudoStorage_abi,
+          web3State.signer
+        )
+      )
+    }
+  }, [web3State.signer])
     
 
   return (
