@@ -8,7 +8,7 @@ function Dapp() {
   const [web3State, login] = useContext(Web3Context)
   const pseudoStorage = useContext(PseudoStorageContext)
   const [PseudoStorage, setPseudoStorage] = useState(null);
- 
+ // const [balance, setBalance] = useState(0)
 
   const [getValue, setGetValue] = useState()
   const [inputValue, setInputValue] = useState()
@@ -44,6 +44,21 @@ function Dapp() {
     }
   }, [web3State.signer])
     
+
+/*
+ useEffect(() => {
+    ;(async () => {
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const network = await provider.getNetwork()
+      const _balance = await provider.getBalance(account)
+      const balance = ethers.utils.formatEther(_balance)
+      setNetwork(network)
+      setBalance(balance)
+    })()
+  }, [isEnable, account])
+
+
+*/
 
   return (
     <>
