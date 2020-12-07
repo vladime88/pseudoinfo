@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
-import React, { useState, useEffect, useContext } from 'react'
-import { Web3Context } from './useWeb3'
+import { useState, useEffect, useContext } from 'react'
+import { Web3Context } from 'web3-hooks'
 
 export const useContract = (address, abi) => {
   const [web3State, _] = useContext(Web3Context)
