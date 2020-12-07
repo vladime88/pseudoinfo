@@ -94,7 +94,7 @@ useEffect(() => {
           <button onClick={login}>login</button>
         </>
       )}
-      {pseudoStorage && web3State.chain_id === 4 && (
+      {pseudoStorage && web3State.chainId === 4 && (
         <>
           
             <button onClick={handleOnClickGet}>GET</button>
